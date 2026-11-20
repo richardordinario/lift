@@ -1,12 +1,15 @@
-import nodemailer from "nodemailer"
-
 /**
- * Vercel serverless function: emails a website form submission to LIFT.
+ * Vercel serverless function: emails a website form submission to LIFT
+ * through the Resend API (https://resend.com/docs/api-reference/emails/send-email).
  *
- * Required environment variables: SMTP_HOST, SMTP_USER, SMTP_PASS.
- * Optional: SMTP_PORT (default 587), SMTP_FROM (default SMTP_USER),
- * INQUIRY_TO (default lift@pcitech.com.ph).
+ * Required environment variables:
+ *   RESEND_API_KEY  API key from the Resend dashboard.
+ *   RESEND_FROM     Sender, on a domain verified in Resend,
+ *                   e.g. "LIFT Website <website@pcitech.com.ph>".
+ * Optional: INQUIRY_TO (default lift@pcitech.com.ph).
  */
+
+const RESEND_ENDPOINT = "https://api.resend.com/emails"
 
 const DEFAULT_RECIPIENT = "lift@pcitech.com.ph"
 
@@ -16,8 +19,6 @@ type FormSpec = {
   title: string
   /** Field whose value is appended to the email subject. */
   subjectField: string
-  /** Field holding the sender's name, for the reply-to header. */
-  nameField: string
   fields: Record<string, FieldSpec>
 }
 
@@ -26,7 +27,6 @@ const FORMS: Record<string, FormSpec> = {
   inquiry: {
     title: "Website inquiry",
     subjectField: "interest",
-    nameField: "name",
     fields: {
       name: { label: "Full name", required: true },
       email: { label: "Email", required: true },
@@ -39,7 +39,6 @@ const FORMS: Record<string, FormSpec> = {
   proposal: {
     title: "Training proposal request",
     subjectField: "org",
-    nameField: "person",
     fields: {
       org: { label: "Organization", required: true },
       person: { label: "Contact person", required: true },
@@ -114,28 +113,31 @@ export async function POST(request: Request) {
     return json(400, { ok: false, error: "Enter a valid email address." })
   }
 
-  const { SMTP_HOST, SMTP_USER, SMTP_PASS } = process.env
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-    console.error("Inquiry email is not configured: set SMTP_HOST, SMTP_USER and SMTP_PASS.")
+  const { RESEND_API_KEY, RESEND_FROM } = process.env
+  if (!RESEND_API_KEY || !RESEND_FROM) {
+    console.error("Inquiry email is not configured: set RESEND_API_KEY and RESEND_FROM.")
     return json(500, { ok: false, error: "Email is not configured." })
   }
 
-  const port = Number(process.env.SMTP_PORT) || 587
-  const transport = nodemailer.createTransport({
-    host: SMTP_HOST,
-    port,
-    secure: port === 465,
-    auth: { user: SMTP_USER, pass: SMTP_PASS },
-  })
-
   try {
-    await transport.sendMail({
-      from: { name: "LIFT Website", address: process.env.SMTP_FROM || SMTP_USER },
-      to: process.env.INQUIRY_TO || DEFAULT_RECIPIENT,
-      replyTo: { name: values[spec.nameField], address: values.email },
-      subject: `${spec.title}: ${values[spec.subjectField]}`,
-      text: `${spec.title} from the LIFT website\n\n${lines.join("\n\n")}\n\nThe sender agreed to the privacy consent statement on the form.\nReply to this email to respond to them directly.\n`,
+    const response = await fetch(RESEND_ENDPOINT, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: RESEND_FROM,
+        to: [process.env.INQUIRY_TO || DEFAULT_RECIPIENT],
+        reply_to: values.email,
+        subject: `${spec.title}: ${values[spec.subjectField]}`,
+        text: `${spec.title} from the LIFT website\n\n${lines.join("\n\n")}\n\nThe sender agreed to the privacy consent statement on the form.\nReply to this email to respond to them directly.\n`,
+      }),
     })
+    if (!response.ok) {
+      console.error("Resend rejected the inquiry email:", response.status, await response.text())
+      return json(502, { ok: false, error: "The message could not be sent." })
+    }
   } catch (error) {
     console.error("Inquiry email failed to send:", error)
     return json(502, { ok: false, error: "The message could not be sent." })
