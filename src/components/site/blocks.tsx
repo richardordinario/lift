@@ -1,8 +1,9 @@
 import type { ReactNode } from "react"
 import { cn } from "cn"
 
-import { CubesMotif, Icon } from "@/components/icons"
+import { ArrowIcon, CubesMotif, Icon } from "@/components/icons"
 import { Button } from "@/components/ui/button"
+import { CONTACT_EMAIL } from "@/data/site"
 
 /** Grey placeholder for a photograph that has not been supplied yet. */
 export function PhotoPlaceholder({ label, wide = false }: { label: string; wide?: boolean }) {
@@ -114,4 +115,41 @@ export function Field({
 
 export function Optional() {
   return <span className="opt">(optional)</span>
+}
+
+/**
+ * Closing rows shared by both forms: the spam honeypot, the error message and
+ * the submit button.
+ */
+export function FormSubmit({
+  label,
+  sending,
+  failed,
+}: {
+  label: string
+  sending: boolean
+  failed: boolean
+}) {
+  return (
+    <>
+      {/* Hidden from people; bots that fill it in are dropped by the server. */}
+      <div className="hp" aria-hidden="true">
+        <label>
+          Website
+          <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+      {failed && (
+        <p className="form-error" role="alert">
+          We couldn’t send your message. Please try again, or email us at{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        </p>
+      )}
+      <Field full>
+        <Button type="submit" className="self-start" disabled={sending}>
+          {sending ? "Sending…" : label} <ArrowIcon />
+        </Button>
+      </Field>
+    </>
+  )
 }

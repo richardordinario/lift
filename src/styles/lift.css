@@ -315,3 +315,9 @@ html.lenis,html.lenis body{height:auto}
  -webkit-mask-composite:source-in;
  mask-composite:intersect;
 }
+
+/* Form submission states (not in the design source). */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-error{grid-column:1/-1;font-size:14px;line-height:1.5;color:#0D1C60;background:#FFD54F;border-radius:12px;padding:12px 14px}
+.form-error a{color:#0D1C60;font-weight:700}
+.btn:disabled{opacity:.6;cursor:default;transform:none}

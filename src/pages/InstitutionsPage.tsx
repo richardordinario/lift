@@ -1,7 +1,7 @@
-import { useState, type FormEvent } from "react"
+import type { FormEvent } from "react"
 
 import { ArrowIcon, Icon, type IconName } from "@/components/icons"
-import { Field, FormSuccess, Optional, PhotoPlaceholder } from "@/components/site/blocks"
+import { Field, FormSubmit, FormSuccess, Optional, PhotoPlaceholder } from "@/components/site/blocks"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select"
 import { Textarea } from "@/components/ui/textarea"
 import { programs } from "@/data/programs"
+import { useInquiryForm } from "@/hooks/use-inquiry-form"
 import { CONTACT_EMAIL } from "@/data/site"
 
 const audiences: { icon: IconName; title: string; body: string }[] = [
@@ -56,7 +57,15 @@ const audienceOptions = [
 
 const deliveryOptions = ["Onsite", "Live online", "Blended", "Open to recommendation"]
 
-function ProposalForm({ onSubmit }: { onSubmit: (event: FormEvent<HTMLFormElement>) => void }) {
+function ProposalForm({
+  onSubmit,
+  sending,
+  failed,
+}: {
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void
+  sending: boolean
+  failed: boolean
+}) {
   return (
     <form className="form" onSubmit={onSubmit}>
       <Field>
@@ -130,25 +139,16 @@ function ProposalForm({ onSubmit }: { onSubmit: (event: FormEvent<HTMLFormElemen
         <Textarea id="details" name="details" />
       </Field>
       <label className="consent field full">
-        <input type="checkbox" required />I agree that LIFT may use the information provided to
+        <input type="checkbox" name="consent" required />I agree that LIFT may use the information provided to
         respond to this request, in line with the Privacy Notice.
       </label>
-      <Field full>
-        <Button type="submit" className="self-start">
-          Request a Training Proposal <ArrowIcon />
-        </Button>
-      </Field>
+      <FormSubmit label="Request a Training Proposal" sending={sending} failed={failed} />
     </form>
   )
 }
 
 export function InstitutionsPage() {
-  const [sent, setSent] = useState(false)
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setSent(true)
-  }
+  const { sent, sending, failed, handleSubmit, reset } = useInquiryForm("proposal")
 
   return (
     <>
@@ -244,9 +244,9 @@ export function InstitutionsPage() {
           </div>
           <div className="form-card">
             {sent ? (
-              <FormSuccess resetLabel="Send another request" onReset={() => setSent(false)} />
+              <FormSuccess resetLabel="Send another request" onReset={reset} />
             ) : (
-              <ProposalForm onSubmit={handleSubmit} />
+              <ProposalForm onSubmit={handleSubmit} sending={sending} failed={failed} />
             )}
           </div>
         </div>

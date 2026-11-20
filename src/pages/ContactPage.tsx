@@ -1,8 +1,8 @@
-import { useState, type FormEvent } from "react"
+import type { FormEvent } from "react"
 import { Link } from "react-router"
 
 import { ArrowIcon, Icon, type IconName } from "@/components/icons"
-import { Field, FormSuccess, Optional, PageHero } from "@/components/site/blocks"
+import { Field, FormSubmit, FormSuccess, Optional, PageHero } from "@/components/site/blocks"
 import {
   Accordion,
   AccordionContent,
@@ -10,13 +10,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select"
 import { Textarea } from "@/components/ui/textarea"
 import { CONTACT_EMAIL, faqs } from "@/data/site"
+import { useInquiryForm } from "@/hooks/use-inquiry-form"
 
 /** Contact details that are still awaiting confirmation. */
 const pendingDetails: { icon: IconName; label: string; value: string }[] = [
@@ -31,7 +31,15 @@ const pendingDetails: { icon: IconName; label: string; value: string }[] = [
 
 const interestOptions = ["Teachers", "BPOs", "Youth", "Institutional Training", "Other"]
 
-function InquiryForm({ onSubmit }: { onSubmit: (event: FormEvent<HTMLFormElement>) => void }) {
+function InquiryForm({
+  onSubmit,
+  sending,
+  failed,
+}: {
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void
+  sending: boolean
+  failed: boolean
+}) {
   return (
     <form className="form" onSubmit={onSubmit}>
       <Field>
@@ -68,25 +76,16 @@ function InquiryForm({ onSubmit }: { onSubmit: (event: FormEvent<HTMLFormElement
         <Textarea id="message" name="message" required />
       </Field>
       <label className="consent field full">
-        <input type="checkbox" required />I acknowledge the Privacy Notice and consent to LIFT
+        <input type="checkbox" name="consent" required />I acknowledge the Privacy Notice and consent to LIFT
         using my information to respond to this inquiry.
       </label>
-      <Field full>
-        <Button type="submit" className="self-start">
-          Send Inquiry <ArrowIcon />
-        </Button>
-      </Field>
+      <FormSubmit label="Send Inquiry" sending={sending} failed={failed} />
     </form>
   )
 }
 
 export function ContactPage() {
-  const [sent, setSent] = useState(false)
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setSent(true)
-  }
+  const { sent, sending, failed, handleSubmit, reset } = useInquiryForm("inquiry")
 
   return (
     <>
@@ -161,9 +160,9 @@ export function ContactPage() {
           </div>
           <div className="form-card">
             {sent ? (
-              <FormSuccess resetLabel="Send another inquiry" onReset={() => setSent(false)} />
+              <FormSuccess resetLabel="Send another inquiry" onReset={reset} />
             ) : (
-              <InquiryForm onSubmit={handleSubmit} />
+              <InquiryForm onSubmit={handleSubmit} sending={sending} failed={failed} />
             )}
           </div>
         </div>

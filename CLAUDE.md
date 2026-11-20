@@ -18,7 +18,7 @@ The parent directory is an Obsidian vault with its own `CLAUDE.md` (`../../CLAUD
 
 ## What this is
 
-The public website for LIFT (Learning Institute for Future Technologies), a technology training institute formed as a joint venture of PCI Tech Center Inc. and St. Mutien College. It is a client-side React 19 + Vite + Tailwind CSS 4 + shadcn/ui (Radix) single-page app with nine routes, migrated from a Claude Design canvas. The forms have no backend: submitting only swaps in a confirmation panel.
+The public website for LIFT (Learning Institute for Future Technologies), a technology training institute formed as a joint venture of PCI Tech Center Inc. and St. Mutien College. It is a client-side React 19 + Vite + Tailwind CSS 4 + shadcn/ui (Radix) single-page app with nine routes, migrated from a Claude Design canvas. Both forms post to one Vercel serverless function, `api/inquiry.ts`, which emails the submission to lift@pcitech.com.ph over SMTP.
 
 ## Source of truth
 
@@ -36,6 +36,7 @@ The canvas departs from the brand guide in two places that are still open: it us
 - **Each route change remounts the whole page.** `SiteLayout` keys `SitePage` on the pathname so the page-enter fade, motion setup and mobile-menu state reset as they did on the multi-page source.
 - **Motion is selector-driven**, in `src/hooks/use-site-motion.ts` (GSAP, ScrollTrigger, Lenis). It finds elements by class (`REVEAL_SELECTOR`, `.ph-cubes`, `.cta-cubes`, `.hero-media`, `.progress`, `[data-count]`), so renaming those classes silently drops animation. It is skipped entirely under `prefers-reduced-motion`.
 - **Program pages are data-driven.** `src/data/programs.ts` feeds the three `/programs/:slug` pages, the home and programs cards, the footer and the proposal form. `src/data/site.ts` holds navigation, FAQs and the contact email.
+- **Forms.** `useInquiryForm` posts `{ form, fields }` to `/api/inquiry`. The server validates against a per-form field list keyed by the inputs' `name` attributes, so adding or renaming a form field means updating `FORMS` in `api/inquiry.ts` too. SMTP settings come from environment variables (see `.env.example`). `npm run dev` does not serve `/api`; use `npx vercel dev` to exercise the forms locally.
 - **Icons** in `src/components/icons.tsx` are the canvas's own SVG paths; lucide is not installed.
 - **Hero video**: transparent WebM, with an MP4 swapped in for Safari and iOS, which cannot play WebM alpha.
 
@@ -56,4 +57,4 @@ Deployment targets Vercel. `vercel.json` sets the Vite build, rewrites every pat
 
 ## Not built yet
 
-Per the guide: form submission and anti-spam (section 14), meta descriptions, Open Graph tags and sitemap (section 13), analytics events (section 14.3), a Privacy Notice page (the footer link points at `#privacy`), and real photography in place of the "Photo to supply" placeholders. Section 16 lists the open approvals by owner.
+Per the guide: rate limiting or a CAPTCHA on the forms (only a honeypot exists), meta descriptions, Open Graph tags and sitemap (section 13), analytics events (section 14.3), a Privacy Notice page (the footer link points at `#privacy`), and real photography in place of the "Photo to supply" placeholders. Section 16 lists the open approvals by owner.
