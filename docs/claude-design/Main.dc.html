@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LIFT | Technology Training Institute Philippines</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/7d0f3583d953b0c76146168061d66491">
+<script src="/_blob/8f69aaea5ea633cd7d81dd76fd87c64d"></script>
+<script src="/_blob/20d6352f57fa0b3574a24339acf85141"></script>
+<script src="/_blob/50560fee2b9b40a09d3109de21bbf501"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400..700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1A47A8}a:hover{color:#0D1C60}
+
+</style>
+</helmet>
+<div class="site" style="font-family: 'Google Sans', Arial, sans-serif; color: #333333">
+<div class="progress" aria-hidden="true"></div>
+<header class="hdr">
+<div class="wrap hdr-in">
+<a class="logo" href="Main.dc.html" aria-label="LIFT, Learning Institute for Future Technologies: home"><img src="/_blob/e4ffe8de974ecc68d1eb79c07f3de3b5" alt="LIFT" width="100" height="100"></a>
+<nav class="nav" aria-label="Primary">
+<a class="nl" href="About.dc.html">About</a>
+<a class="nl" href="Programs.dc.html">Programs</a>
+<a class="nl" href="Institutions.dc.html">For Institutions</a>
+<a class="nl" href="Impact.dc.html">Impact</a>
+<a class="nl" href="Contact.dc.html">Contact</a>
+<a class="btn btn-primary" style="margin-left: 14px" href="Contact.dc.html">Enquire Now</a>
+</nav>
+<button class="menu-btn" type="button" aria-label="{{menuLabel}}" aria-expanded="{{menuExpanded}}" onClick="{{toggleMenu}}">
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></sc-if>
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></sc-if>
+</button>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" aria-label="Mobile">
+<a class="nl" href="About.dc.html">About</a>
+<a class="nl" href="Programs.dc.html">Programs</a>
+<a class="nl" href="Institutions.dc.html">For Institutions</a>
+<a class="nl" href="Impact.dc.html">Impact</a>
+<a class="nl" href="Contact.dc.html">Contact</a>
+<a class="btn btn-primary btn-block" href="Contact.dc.html">Enquire Now</a>
+</nav>
+</sc-if>
+</header>
+<main>
+<section class="hero">
+<div class="wrap hero-grid">
+<div class="hero-copy">
+<span class="eyebrow">Learning Institute for Future Technologies</span>
+<h1 class="h1">Future-ready skills start here.</h1>
+<p class="lead">LIFT is a Technology Training Institute helping teachers, BPO talent, youth and young professionals learn and apply artificial intelligence. Through practical training and guided learning experiences, we help people move from curiosity to confidence.</p>
+<div class="actions">
+<a class="btn btn-primary" href="Programs.dc.html">Explore Our AI Programs <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="btn btn-ghost" href="Institutions.dc.html">Train Your Team</a>
+</div>
+<p class="jv"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg>A Joint Venture of PCI Tech Center Inc. and St. Mutien College.</p>
+</div>
+<figure class="hero-media">
+<video class="hero-video" src="/_blob/6a0c9724114b13e0a69e134f209019a8" poster="/_blob/77c6c5fa162f890fcc1ccb7c9c2dbdf2" data-fallback="/_blob/29387ec6d3ee83e7ccb00787a8562030" width="960" height="720" autoplay="" muted="" loop="" playsinline="" preload="auto" aria-label="Animation: three ascending green columns labelled AI for Teachers, AI for BPOs and AI for Youth, with an upward arrow."></video>
+<button class="vid-btn" type="button" aria-label="{{videoLabel}}" onClick="{{toggleVideo}}"><sc-if value="{{playing}}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1"></rect><rect x="13.5" y="5" width="4" height="14" rx="1"></rect></svg></sc-if><sc-if value="{{paused}}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg></sc-if></button>
+</figure>
+</div>
+</section>
+
+<section class="sec sec-tint" aria-labelledby="programs-h">
+<div class="wrap">
+<div class="sec-head-row">
+<div class="sec-head">
+<span class="eyebrow">Current AI programs</span>
+<h2 class="h2" id="programs-h">AI learning for the people shaping tomorrow.</h2>
+<p class="lead">Wherever you are in your learning or career journey, LIFT helps you develop useful AI skills with responsible practice and real-world applications.</p>
+</div>
+<a class="btn btn-ghost" href="Programs.dc.html">Explore Programs</a>
+</div>
+<div class="grid3">
+<article class="card card-hover">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"></path><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"></path></svg></div>
+<span class="tag tag-dot">Current program</span>
+</div>
+<h3 class="h3" style="font-size: 22px">AI Education for Teachers</h3>
+<p>Bring AI into teaching and learning thoughtfully. Explore how educators can save time, strengthen preparation and create more engaging learning experiences.</p>
+<p class="meta"><strong>For:</strong> Teachers, school leaders and education professionals</p>
+<div class="card-foot"><a class="link" href="AI-for-Teachers.dc.html">Explore Teacher Training <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</article>
+<article class="card card-hover">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="2.5" y="14" width="4" height="6" rx="1.5"></rect><rect x="17.5" y="14" width="4" height="6" rx="1.5"></rect><path d="M19.5 20a2.5 2.5 0 0 1-2.5 2h-3"></path></svg></div>
+<span class="tag tag-dot">Current program</span>
+</div>
+<h3 class="h3" style="font-size: 22px">AI Education for BPOs</h3>
+<p>Prepare for AI-supported service and business workflows. Build practical confidence with AI tools while reinforcing judgment, communication and data care.</p>
+<p class="meta"><strong>For:</strong> Current and aspiring BPO talent and their teams</p>
+<div class="card-foot"><a class="link" href="AI-for-BPOs.dc.html">Explore BPO Training <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</article>
+<article class="card card-hover">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7-4.7-1.8 4.7-1.8z"></path><path d="M19 15l.8 2.2 2.2.8-2.2.8L19 21l-.8-2.2-2.2-.8 2.2-.8z"></path></svg></div>
+<span class="tag tag-dot">Current program</span>
+</div>
+<h3 class="h3" style="font-size: 22px">AI Education for Youth and Young Professionals</h3>
+<p>Build digital fluency early. Learn to use AI to research, create, solve problems and produce work that demonstrates your developing skills.</p>
+<p class="meta"><strong>For:</strong> Students, recent graduates and emerging professionals</p>
+<div class="card-foot"><a class="link" href="AI-for-Youth.dc.html">Explore Youth Training <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="sec" aria-labelledby="approach-h">
+<div class="wrap split-40">
+<div class="stack" style="gap: 20px">
+<span class="eyebrow">Our approach</span>
+<h2 class="h2" id="approach-h">Learn by doing. Grow by applying.</h2>
+<p>Technology skills become valuable when you can use them. LIFT’s learning approach emphasizes guided exercises, relevant examples, reflection and practical outputs. Participants are encouraged to understand what AI can do, recognize its limits and practice using it responsibly in their own contexts.</p>
+</div>
+<div class="pillars" style="grid-template-columns: minmax(0, 1fr); border-top: 0">
+<div class="pillar" style="flex-direction: row; gap: 20px; padding: 28px 0; border-top: 1px solid #E6E9ED">
+<div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg></div>
+<div class="stack" style="gap: 6px"><h3 class="h3">Applied learning</h3><p>Exercises and outputs connected to education and work.</p></div>
+</div>
+<div class="pillar" style="flex-direction: row; gap: 20px; padding: 28px 0; border-top: 1px solid #E6E9ED">
+<div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"></path></svg></div>
+<div class="stack" style="gap: 6px"><h3 class="h3">Human guidance</h3><p>Instructor facilitation and feedback where the format provides it.</p></div>
+</div>
+<div class="pillar" style="flex-direction: row; gap: 20px; padding: 28px 0; border-top: 1px solid #E6E9ED; border-bottom: 1px solid #E6E9ED">
+<div class="icon icon-green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+<div class="stack" style="gap: 6px"><h3 class="h3">Responsible AI</h3><p>Attention to privacy, accuracy, ethics and independent judgment.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec sec-line" aria-labelledby="partner-h">
+<div class="wrap split">
+<figure class="ph ph-wide"><div class="ph-cubes"><svg width="120" height="102" viewBox="0 0 200 170" fill="none" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><g stroke="#FFFFFF"><path d="M14 112l36-18 36 18-36 18z"></path><path d="M14 112v32l36 18v-32M86 112v32l-36 18"></path></g><g stroke="#FFFFFF"><path d="M70 72l36-18 36 18-36 18z"></path><path d="M70 72v32l36 18v-32M142 72v32l-36 18"></path></g><g stroke="#1A47A8"><path d="M172 132V18M152 38l20-20 20 20"></path></g></svg></div><figcaption class="ph-label"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg>Photo to supply: St. Mutien College campus training environment</figcaption></figure>
+<div class="stack" style="gap: 20px; align-self: center">
+<span class="eyebrow">Partnership</span>
+<h2 class="h2" id="partner-h">Built through education and industry collaboration.</h2>
+<p>LIFT brings together St. Mutien College’s academic environment and PCI Tech Center Inc.’s technology training and industry project experience. This joint foundation helps LIFT design learning that is accessible to individuals and relevant to institutions.</p>
+<div><a class="link" href="About.dc.html">Learn About LIFT <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+</div>
+</section>
+
+<section class="sec sec-tint" aria-labelledby="impact-h">
+<div class="wrap split-40">
+<div class="stack" style="gap: 20px">
+<span class="eyebrow">Impact</span>
+<h2 class="h2" id="impact-h">Early work. Practical results.</h2>
+<p>LIFT has delivered hands-on technology training, including a 40-hour Game Design and Development cohort in 2025. In March 2026, LIFT also joined BCYF and DTI Region VII in virtual AI and cybersecurity learning activities for education and business audiences. These experiences inform our approach to creating practical, audience-centered programs.</p>
+<div><a class="link" href="Impact.dc.html">See Our Impact <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<div class="grid2">
+<div class="card">
+<span class="tag">2025 · Pilot cohort</span>
+<p class="stat-v" data-count="40" data-suffix=" hrs">40 hrs</p>
+<p>Game Design and Development, across ten instructor-led sessions.</p>
+<p class="meta"><strong>4.7 / 5</strong> overall evaluation</p>
+</div>
+<div class="card">
+<span class="tag">March 2026 · Virtual</span>
+<p class="stat-v" data-count="130">130</p>
+<p>Registrations for AI and cybersecurity sessions with BCYF and DTI Region VII.</p>
+<p class="meta"><strong>4.63–4.79 / 5</strong> satisfaction</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" aria-labelledby="inst-h">
+<div class="wrap">
+<div class="cta dark">
+<div class="cta-cubes"><svg width="220" height="187" viewBox="0 0 200 170" fill="none" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><g stroke="#7CC144"><path d="M14 112l36-18 36 18-36 18z"></path><path d="M14 112v32l36 18v-32M86 112v32l-36 18"></path></g><g stroke="#7CC144"><path d="M70 72l36-18 36 18-36 18z"></path><path d="M70 72v32l36 18v-32M142 72v32l-36 18"></path></g><g stroke="#1A47A8"><path d="M172 132V18M152 38l20-20 20 20"></path></g></svg></div>
+<div class="stack" style="gap: 18px; position: relative">
+<h2 class="h2" id="inst-h">Looking to train a school, team or community?</h2>
+<p style="max-width: 620px">We can discuss cohort-based learning for educational institutions, BPO organizations, companies, foundations and workforce-development initiatives. Tell us your audience and training goals, and let’s explore a suitable approach.</p>
+</div>
+<div class="actions" style="position: relative"><a class="btn btn-green" href="Institutions.dc.html">Request a Training Proposal <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+</div>
+</section>
+
+<section class="sec sec-line" aria-labelledby="final-h">
+<div class="wrap" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px">
+<h2 class="h2" id="final-h" style="max-width: 760px">Ready to learn what AI can help you do?</h2>
+<p class="lead">Explore a current training pathway or connect with LIFT to find the next available cohort.</p>
+<div class="actions" style="justify-content: center; padding-top: 8px">
+<a class="btn btn-primary" href="Programs.dc.html">Explore Programs</a>
+<a class="btn btn-ghost" href="Contact.dc.html">Contact LIFT</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="ftr dark">
+<div class="wrap">
+<div class="ftr-grid">
+<div class="ftr-brand">
+<img src="/_blob/4df8410cee202c8cf36fd61b320e28b2" alt="LIFT" width="100" height="100">
+<p class="ftr-name">LIFT — Learning Institute for Future Technologies</p>
+<p>Practical technology training for learners, educators and organizations.</p>
+<p class="ftr-jv">A Joint Venture of PCI Tech Center Inc. and St. Mutien College.</p>
+</div>
+<div>
+<h2 class="ftr-h">Explore</h2>
+<ul class="ftr-links">
+<li><a href="About.dc.html">About</a></li>
+<li><a href="Programs.dc.html">Programs</a></li>
+<li><a href="Institutions.dc.html">For Institutions</a></li>
+<li><a href="Impact.dc.html">Impact</a></li>
+<li><a href="Contact.dc.html">Contact</a></li>
+</ul>
+</div>
+<div>
+<h2 class="ftr-h">Programs</h2>
+<ul class="ftr-links">
+<li><a href="AI-for-Teachers.dc.html">AI for Teachers</a></li>
+<li><a href="AI-for-BPOs.dc.html">AI for BPOs</a></li>
+<li><a href="AI-for-Youth.dc.html">AI for Youth</a></li>
+</ul>
+</div>
+<div>
+<h2 class="ftr-h">Contact</h2>
+<ul class="ftr-links">
+<li><a href="mailto:lift@pcitech.com.ph">lift@pcitech.com.ph</a></li>
+<li><a href="Contact.dc.html">Send an inquiry</a></li>
+</ul>
+</div>
+</div>
+<div class="ftr-bottom">
+<span>© 2026 LIFT. [Approved legal footer text]</span>
+<a href="#privacy">Privacy Notice</a>
+</div>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menu: false, paused: false };
+  }
+  componentDidMount() {
+    const v = document.querySelector('.hero-video'), ua = navigator.userAgent || '';
+    const noAlpha = (/AppleWebKit/i.test(ua) && !/(Chrome|Chromium|Edg|OPR)\//i.test(ua)) || /CriOS|FxiOS|EdgiOS/i.test(ua);
+    if (v && noAlpha && v.getAttribute('data-fallback')) { v.src = v.getAttribute('data-fallback'); v.load(); const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    this._t = setTimeout(() => this.initMotion(), 80);
+  }
+  componentWillUnmount() { clearTimeout(this._t); if (this._cleanup) this._cleanup(); }
+  initMotion() {
+    const w = window, d = document, g = w.gsap, ST = w.ScrollTrigger;
+    const reduce = !!(w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const vid = d.querySelector('.hero-video');
+    if (vid && reduce) { vid.pause(); this.setState({ paused: true }); }
+    if (reduce || !g || !ST) return;
+    const se = d.scrollingElement || d.documentElement;
+    if (se.scrollHeight <= w.innerHeight + 80) return;
+    g.registerPlugin(ST);
+    let lenis = null, tick = null;
+    if (w.Lenis) {
+      lenis = new w.Lenis({ duration: 1.05, smoothWheel: true });
+      lenis.on('scroll', ST.update);
+      tick = (t) => lenis.raf(t * 1000);
+      g.ticker.add(tick); g.ticker.lagSmoothing(0);
+    }
+    const ctx = g.context(() => {
+      g.from('main > section:first-child .hero-copy > *, main > section:first-child .phero-in > *, main > section:first-child .crumb', { y: 22, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.07, delay: 0.1 });
+      g.from('main > section:first-child .hero-media, main > section:first-child .ph', { y: 30, opacity: 0, scale: 0.98, duration: 1, ease: 'power3.out', delay: 0.25 });
+      let items = g.utils.toArray('.sec-head, .sec-head-row > a, .sec-head-row > .notice, .card, .pillar, .mod, .fact, .crow, .faq details, .cta, .split > *, .split-40 > *, .values, main .ph').filter((el) => !el.closest('main > section:first-child'));
+      items = items.filter((el) => !items.some((o) => o !== el && o.contains(el)));
+      g.set(items, { opacity: 0, y: 28 });
+      ST.batch(items, { start: 'top 90%', once: true, onEnter: (b) => g.to(b, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.08, overwrite: true }) });
+      g.utils.toArray('.ph-cubes, .cta-cubes').forEach((el) => g.to(el, { yPercent: -16, ease: 'none', scrollTrigger: { trigger: el.parentNode, start: 'top bottom', end: 'bottom top', scrub: true } }));
+      const hm = d.querySelector('.hero-media');
+      if (hm) g.to(hm, { yPercent: 5, scale: 0.97, ease: 'none', scrollTrigger: { trigger: hm, start: 'top 20%', end: 'bottom top', scrub: true } });
+      g.to('.progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.2 } });
+      g.utils.toArray('[data-count]').forEach((el) => {
+        const raw = el.getAttribute('data-count'), end = parseFloat(raw), dec = (raw.split('.')[1] || '').length, suf = el.getAttribute('data-suffix') || '', o = { v: 0 };
+        g.to(o, { v: end, duration: 1.4, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 92%', once: true }, onUpdate: () => { el.textContent = o.v.toFixed(dec) + suf; } });
+      });
+    });
+    const onClick = (e) => {
+      const a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!a || a.getAttribute('href').length < 2) return;
+      const t = d.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      e.preventDefault();
+      if (lenis) lenis.scrollTo(t, { offset: -24 }); else t.scrollIntoView({ behavior: 'smooth' });
+    };
+    d.addEventListener('click', onClick);
+    this._cleanup = () => { d.removeEventListener('click', onClick); ctx.revert(); if (tick) g.ticker.remove(tick); if (lenis) lenis.destroy(); };
+  }
+  renderVals() {
+    const open = !!this.state.menu, paused = !!this.state.paused;
+    return {
+      menuOpen: open,
+      menuClosed: !open,
+      menuExpanded: open ? 'true' : 'false',
+      menuLabel: open ? 'Close menu' : 'Open menu',
+      toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      paused: paused,
+      playing: !paused,
+      videoLabel: paused ? 'Play animation' : 'Pause animation',
+      toggleVideo: () => { const v = document.querySelector('.hero-video'); if (!v) return; if (v.paused) { v.play(); this.setState({ paused: false }); } else { v.pause(); this.setState({ paused: true }); } },
+    };
+  }
+}
+</script>
+</body>
+</html>

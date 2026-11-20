@@ -1,0 +1,134 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "AI-for-BPOs.dc.html": {
+      "expand": "fill",
+      "h": 4400,
+      "is_interactive": true,
+      "title": "AI Education for BPOs",
+      "w": 1440,
+      "x": 1520,
+      "y": 5660
+    },
+    "AI-for-Teachers.dc.html": {
+      "expand": "fill",
+      "h": 4400,
+      "is_interactive": true,
+      "title": "AI Education for Teachers",
+      "w": 1440,
+      "x": 0,
+      "y": 5660
+    },
+    "AI-for-Youth.dc.html": {
+      "expand": "fill",
+      "h": 4400,
+      "is_interactive": true,
+      "title": "AI Education for Youth",
+      "w": 1440,
+      "x": 3040,
+      "y": 5660
+    },
+    "About.dc.html": {
+      "expand": "fill",
+      "h": 3900,
+      "is_interactive": true,
+      "title": "About",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Contact.dc.html": {
+      "expand": "fill",
+      "h": 4500,
+      "is_interactive": true,
+      "title": "Contact",
+      "w": 1440,
+      "x": 7600,
+      "y": 0
+    },
+    "Impact.dc.html": {
+      "expand": "fill",
+      "h": 3000,
+      "is_interactive": true,
+      "title": "Impact",
+      "w": 1440,
+      "x": 6080,
+      "y": 0
+    },
+    "Institutions.dc.html": {
+      "expand": "fill",
+      "h": 3800,
+      "is_interactive": true,
+      "title": "For Institutions",
+      "w": 1440,
+      "x": 4560,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 5200,
+      "is_interactive": true,
+      "title": "Home",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Programs.dc.html": {
+      "expand": "fill",
+      "h": 3000,
+      "is_interactive": true,
+      "title": "Programs",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-20T18:10:55Z",
+    "v": 1
+  },
+  "designSystems": [
+    {
+      "artifact": "https://claude.ai/artifact/56xqYtL3j5ds4ZVzenn7LH",
+      "copiedAt": "2026-11-20T18:10:55Z",
+      "namespace": "lift",
+      "title": "LIFT",
+      "version": null
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "mainpages": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "LIFT website — main pages",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "progpages": {
+      "kind": "title1",
+      "maxW": 4400,
+      "text": "Program pages",
+      "w": 240,
+      "x": 0,
+      "y": 5360
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "About.dc.html",
+    "Programs.dc.html",
+    "Institutions.dc.html",
+    "Impact.dc.html",
+    "Contact.dc.html",
+    "AI-for-Teachers.dc.html",
+    "AI-for-BPOs.dc.html",
+    "AI-for-Youth.dc.html"
+  ],
+  "pages": [],
+  "title": "LIFT Website"
+}
